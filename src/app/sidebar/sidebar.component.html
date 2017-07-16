@@ -1,0 +1,67 @@
+<aside>
+  <div class="sidebar__section">
+    <h3 class="sidebar__section__title">Text</h3>
+    <!-- #region Font Family -->
+    <div class="sidebar__item">
+      <md-select
+        placeholder="Font Family"
+        floatPlaceholder="always"
+        class="w-100p"
+        [(ngModel)]="fontFamily"
+      >
+        <md-option *ngFor="let font of fonts" [value]="font">
+          {{ font }}
+        </md-option>
+      </md-select>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Font Size -->
+    <div class="sidebar__item">
+      <md-input-container class="w-100p">
+        <input mdInput type="number" placeholder="Font Size" [value]="fontSize" />
+        <span mdSuffix>px</span>
+      </md-input-container>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Font Color -->
+    <div class="sidebar__item">
+      <md-input-container class="w-100p">
+        <input
+          mdInput
+          type="text"
+          placeholder="Text color"
+          [value]="fontColor"
+          [(colorPicker)]="fontColor"
+          cpPosition="bottom"
+        />
+        <span mdSuffix>
+          <span class="bullet" [style.background]="fontColor"></span>
+        </span>
+      </md-input-container>
+    </div>
+    <!-- #endregion -->
+
+  </div>
+  <div>
+    <h3 class="sidebar__section__title">Style</h3>
+    <!-- #region Back Color -->
+    <div class="sidebar__item">
+      <md-input-container class="w-100p">
+        <input
+          mdInput
+          type="text"
+          placeholder="Background color"
+          [value]="backgroundColor"
+          [(colorPicker)]="backgroundColor"
+          cpPosition="bottom"
+        />
+        <span mdSuffix>
+          <span class="bullet" [style.background]="backgroundColor"></span>
+        </span>
+      </md-input-container>
+    </div>
+    <!-- #endregion -->
+  </div>
+</aside>

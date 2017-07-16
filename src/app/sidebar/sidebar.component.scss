@@ -1,0 +1,27 @@
+
+.sidebar__section {
+  font-family: inherit;
+}
+
+.sidebar__section__title {
+  font-family: inherit;
+  border: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 16px;
+  background: rgba(0,0,0,.32);
+  color: hsla(0,0%,100%,.87);
+}
+
+.sidebar__item {
+  $border-paddings: 8px;
+  $placeholder-size: 24px;
+  /** Workaround for dropdowns in ngMaterial because placeholder is always position:absolute **/
+  padding: 0 16px;
+  padding-top: $border-paddings + $placeholder-size;
+}
+

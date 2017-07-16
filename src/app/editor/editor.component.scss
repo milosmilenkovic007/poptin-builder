@@ -1,0 +1,103 @@
+:host {
+  background: url('/assets/img/blank.jpg') top left;
+  background-attachment: fixed;
+  display: flex;
+  flex: 1;
+  margin: auto;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.editor__container {
+  margin: auto;
+  display: table;
+  height: auto;
+  width: auto;
+}
+
+$pop-size: 496px;
+$pop-bg-default: #E07A5F;
+$pop-border-outter-size: 5px;
+$pop-radius: 16px;
+
+
+.popt {
+  font-family: Tahoma, Helvetica, sans-serif;
+  background: $pop-bg-default;
+  border-radius: 50%;
+  height: $pop-size;
+  width: $pop-size;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.popt__container {
+  position: relative;
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: white;
+
+  &:before {
+    content: '';
+    background: url('/assets/layer/stars.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    height: 46px;
+  }
+}
+
+.popt__form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  display: block;
+}
+
+.popt__slogan {
+  font: 24px Tahoma, Helvetica, sans-serif;
+  font-weight: 800;
+  color: white;
+}
+
+.popt__row {
+  padding: 10px 0;
+}
+
+.popt__input {
+  background: #fff;
+  font-family: Tahoma, Helvetica, sans-serif;
+  font-size: 20px;
+  width: 100%;
+  border-radius: $pop-radius;
+  border: none;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.popt__button {
+  cursor: pointer;
+  font-family: Tahoma, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  background: #414142;
+  border-radius: $pop-radius;
+  border: 0;
+  width: 100%;
+  padding: 12px;
+}
+
+.popt__row--disclaimer {
+  font-family: Tahoma, Helvetica, sans-serif;
+  font-size: 14px;
+  padding-top: 0px;
+}

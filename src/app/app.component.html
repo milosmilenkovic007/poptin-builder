@@ -1,3 +1,35 @@
-<h1>
-  {{title}}
-</h1>
+<header>
+  <md-toolbar color="primary" class="app__header">
+    <button md-icon-button (click)="sideBarOpen = !sideBarOpen">
+      <md-icon>menu</md-icon>
+    </button>
+
+    <span>Poptin Builder</span>
+
+    <span class="app__header__divider"></span>
+
+    <span>
+
+      <button md-icon-button title="Show embedded code">
+        <md-icon>code</md-icon>
+      </button>
+
+      <button md-icon-button title="Reset">
+        <md-icon>refresh</md-icon>
+      </button>
+
+    </span>
+  </md-toolbar>
+</header>
+
+<md-sidenav-container class="app__container">
+  <md-sidenav class="sidebar" #sidenav mode="side" [opened]="sideBarOpen">
+    <app-sidebar
+      [fontColor]="font.color"
+      [fontFamily]="font.family"
+      [fontColor]="font.color"
+      [backgroundColor]="backgroundColor"
+    ></app-sidebar>
+  </md-sidenav>
+  <app-editor></app-editor>
+</md-sidenav-container>
