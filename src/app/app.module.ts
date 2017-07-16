@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {ColorPickerModule} from 'angular2-color-picker';
+import { ColorPickerModule } from 'angular2-color-picker';
 
 // ngMaterial dependencies
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -13,11 +13,15 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { EditorComponent } from './editor/editor.component';
 
+import { TemplatesService } from './services/templates.service';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    EditorComponent
+    EditorComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserAnimationsModule,
@@ -27,7 +31,9 @@ import { EditorComponent } from './editor/editor.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    TemplatesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
