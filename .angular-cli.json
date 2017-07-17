@@ -56,5 +56,6 @@
   "defaults": {
     "styleExt": "scss",
     "component": {}
-  }
+  },
+  "paths": { "@angular/*": ["../node_modules/@angular/*"] }
 }
