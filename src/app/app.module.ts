@@ -19,6 +19,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 // Store setup
 import { StoreModule } from '@ngrx/store';
 import { AppState, initialState, backgroundReducer, templateReducer, dirtyReducer } from './store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -37,6 +38,9 @@ import { AppState, initialState, backgroundReducer, templateReducer, dirtyReduce
       backgroundColor: backgroundReducer,
       isDirty: dirtyReducer,
       templateHTML: templateReducer
+    }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
     }),
     FormsModule,
     HttpModule

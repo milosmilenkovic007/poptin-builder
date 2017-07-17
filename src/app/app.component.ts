@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { FONTS, UIFontStyle } from '../foundation/fonts';
 import { Store } from '@ngrx/store';
 import { AppState, RESET } from 'app/store';
+import { TemplatesService } from 'app/services/templates.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { AppState, RESET } from 'app/store';
 export class AppComponent implements OnInit {
   sideBarOpen = true;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private tpl: TemplatesService) {
 
   }
 
@@ -25,5 +26,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  exportScript() {
+    this.store.select('templateHTML').subscribe((html: string) => {
+      this.tpl.saveEmbeddedScript(html);
+    });
   }
 }

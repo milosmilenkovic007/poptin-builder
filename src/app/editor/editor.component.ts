@@ -79,11 +79,15 @@ export class EditorComponent implements OnInit, AfterViewInit {
     element.contentEditable = isEditable.toString();
 
     if (!isEditable) {
-      this.store.dispatch({
-        type: SET_TEMPLATE,
-        payload: $(this.hostElement).find('.popt').html()
-      });
+      this.commitHtmlChanges();
     }
+  }
+
+  commitHtmlChanges() {
+    this.store.dispatch({
+      type: SET_TEMPLATE,
+      payload: $(this.hostElement).find('.popt').html()
+    });
   }
 
   /**
@@ -97,6 +101,8 @@ export class EditorComponent implements OnInit, AfterViewInit {
         this.store.dispatch({
           type: MARK_AS_DIRTY
         });
+
+        this.commitHtmlChanges();
       })
       .find('[data-control]')
       .on('click', (event: MouseEvent) => {
@@ -115,7 +121,10 @@ export class EditorComponent implements OnInit, AfterViewInit {
       })
       .draggable({
         cancel: false,
-        start: () => this.store.dispatch({ type: MARK_AS_DIRTY })
+        start: () => {
+          this.store.dispatch({ type: MARK_AS_DIRTY });
+          this.commitHtmlChanges();
+        }
       });
 
     this.store.select('backgroundColor').subscribe((newColor: string) => {
@@ -128,6 +137,11 @@ export class EditorComponent implements OnInit, AfterViewInit {
         .css({
           'background-color': newColor
         });
+
+      this.store.dispatch({
+        type: SET_TEMPLATE,
+        payload: $(this.hostElement).find('.popt').html()
+      });
     });
   }
 
