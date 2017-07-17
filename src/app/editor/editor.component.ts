@@ -93,7 +93,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
    */
   registerEditorHooks() {
     $(this.hostElement)
-      .on('keydown', '[contenteditable]', () => {
+      .on('blur keyup paste input', '[contenteditable]', () => {
         this.store.dispatch({
           type: MARK_AS_DIRTY
         });
