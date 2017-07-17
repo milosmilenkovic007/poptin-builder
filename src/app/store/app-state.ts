@@ -1,9 +1,11 @@
 export interface AppState {
-  currentElement: HTMLElement;
+  isDirty: boolean;
+  templateHTML: string;
   backgroundColor: string;
 }
 
-export const initialState: AppState = {
-  currentElement: null,
-  backgroundColor: String('#E07A5F')
+export let initialState: AppState = {
+  isDirty: false,
+  templateHTML: '',
+  backgroundColor: '#E07A5F'
 };

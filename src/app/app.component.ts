@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { FONTS, UIFontStyle } from '../foundation/fonts';
+import { Store } from '@ngrx/store';
+import { AppState, RESET } from 'app/store';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,16 @@ import { FONTS, UIFontStyle } from '../foundation/fonts';
 })
 export class AppComponent implements OnInit {
   sideBarOpen = true;
+
+  constructor(private store: Store<AppState>) {
+
+  }
+
+  resetApp() {
+    this.store.dispatch({
+      type: RESET
+    });
+  }
 
   ngOnInit() {
 
