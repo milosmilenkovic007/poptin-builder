@@ -18,16 +18,15 @@ export class TemplatesService {
   }
 
   saveEmbeddedScript(templateHtml: string) {
+    const html = JSON.stringify(`${TPL_CSS}${templateHtml}`);
 
     const script = `(function(w, d, b) {
-      var tpl = '${TPL_CSS}${templateHtml}';
-      d.addEventListener('DOMContentLoaded', function() {
-        var block = document.createElement('div');
-        block.innerHTML = tpl;
-        d.head.appendChild(css);
-        d.body.appendChild(block);
-      });
-    }(window, document);`;
+  var tpl = ${html};
+  d.addEventListener('DOMContentLoaded', function() {
+    var block = document.createElement('div');
+    block.innerHTML = tpl;
+    d.body.appendChild(block);
+});})(window, document);`;
 
     const blob = new Blob([script], {type: 'text/javascript;charset=utf-8'});
     FileSaver.saveAs(blob, 'poptin-embedded.js');

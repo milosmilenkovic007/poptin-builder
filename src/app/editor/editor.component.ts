@@ -86,7 +86,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
   commitHtmlChanges() {
     this.store.dispatch({
       type: SET_TEMPLATE,
-      payload: $(this.hostElement).find('.popt').html()
+      payload: $(this.hostElement).find('.popt')[0].outerHTML
     });
   }
 
@@ -138,10 +138,7 @@ export class EditorComponent implements OnInit, AfterViewInit {
           'background-color': newColor
         });
 
-      this.store.dispatch({
-        type: SET_TEMPLATE,
-        payload: $(this.hostElement).find('.popt').html()
-      });
+      this.commitHtmlChanges();
     });
   }
 
