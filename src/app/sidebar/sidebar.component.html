@@ -1,5 +1,5 @@
 <aside>
-  <div class="sidebar__section">
+  <div class="sidebar__section" *ngIf="false">
     <h3 class="sidebar__section__title">Text</h3>
     <!-- #region Font Family -->
     <div class="sidebar__item">
@@ -8,6 +8,7 @@
         floatPlaceholder="always"
         class="w-100p"
         [(ngModel)]="fontFamily"
+        disabled
       >
         <md-option *ngFor="let font of fonts" [value]="font">
           {{ font }}
@@ -19,7 +20,7 @@
     <!-- #region Font Size -->
     <div class="sidebar__item">
       <md-input-container class="w-100p">
-        <input mdInput type="number" placeholder="Font Size" [value]="fontSize" />
+        <input mdInput type="number" placeholder="Font Size" [value]="fontSize" disabled/>
         <span mdSuffix>px</span>
       </md-input-container>
     </div>
@@ -53,12 +54,12 @@
           mdInput
           type="text"
           placeholder="Background color"
-          [value]="backgroundColor"
-          [(colorPicker)]="backgroundColor"
+          [value]="currentBackgroundColor"
+          [(colorPicker)]="currentBackgroundColor"
           cpPosition="bottom"
         />
         <span mdSuffix>
-          <span class="bullet" [style.background]="backgroundColor"></span>
+          <span class="bullet" [style.background]="currentBackgroundColor"></span>
         </span>
       </md-input-container>
     </div>

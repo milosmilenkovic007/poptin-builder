@@ -158,6 +158,14 @@
   dependencies:
     tsickle "^0.21.0"
 
+"@ngrx/core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/core/-/core-1.2.0.tgz#882b46abafa2e0e6d887cb71a1b2c2fa3e6d0dc6"
+
+"@ngrx/store@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-2.2.3.tgz#e7bd1149f1c44208f1cc4744353f0f98a0f1f57b"
+
 "@ngtools/json-schema@1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.0.9.tgz#19e46db409c66b4c43841eab514ff9640871affc"

@@ -16,6 +16,11 @@ import { EditorComponent } from './editor/editor.component';
 import { TemplatesService } from './services/templates.service';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
+// Store setup
+import { StoreModule } from '@ngrx/store';
+import { AppState, initialState, backgroundReducer } from './store';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +33,9 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     ColorPickerModule,
     MaterialModule,
     BrowserModule,
+    StoreModule.provideStore({
+      backgroundColor: backgroundReducer
+    }),
     FormsModule,
     HttpModule
   ],

@@ -6,7 +6,7 @@ $pop-radius: 16px;
 
 .popt {
   font-family: Tahoma, Helvetica, sans-serif;
-  background: $pop-bg-default;
+  background-color: $pop-bg-default;
   border-radius: 50%;
   height: $pop-size;
   width: $pop-size;
@@ -86,7 +86,7 @@ $pop-radius: 16px;
   color: white;
   font-weight: bold;
   font-size: 30px;
-  background: #414142;
+  background-color: #414142;
   border-radius: $pop-radius;
   border: 0;
   width: 100%;

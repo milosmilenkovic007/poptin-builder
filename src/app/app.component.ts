@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { FONTS, UIFontStyle } from '../foundation/fonts';
 
@@ -7,8 +8,10 @@ import { FONTS, UIFontStyle } from '../foundation/fonts';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   sideBarOpen = true;
-  font = new UIFontStyle();
-  backgroundColor = '#c87960';
+
+  ngOnInit() {
+
+  }
 }

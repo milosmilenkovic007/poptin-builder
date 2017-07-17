@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 
 import { TemplatesService } from 'app/services/templates.service';
+import { Store } from '@ngrx/store';
+import { AppState, SET_BACKGROUND_COLOR } from 'app/store';
 
 // We need jQuery here because we use external templates HTML
 // And to take less size of HTML template do not clog up it with Angular tags
@@ -21,7 +23,11 @@ export class EditorComponent implements OnInit, AfterViewInit {
     return this.elementRef.nativeElement;
   }
 
-  constructor(private tpl: TemplatesService, private elementRef: ElementRef) { }
+  constructor(
+    private tpl: TemplatesService,
+    private elementRef: ElementRef,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit() {
 
@@ -60,13 +66,23 @@ export class EditorComponent implements OnInit, AfterViewInit {
   registerEditorHooks() {
     $(this.hostElement)
       .find('[data-control]')
-      .on('click', (event: MouseEvent) => this.setEditableElementStatus(event, true))
+      .on('click', (event: MouseEvent) => {
+        this.setEditableElementStatus(event, true)
+      })
       .on('keydown', (event: KeyboardEvent) => {
         if (event.keyCode === KEY_ESCAPE) {
           this.setEditableElementStatus(event, false);
         }
       })
       .draggable();
+
+    this.store.select('backgroundColor').subscribe((newColor: string) => {
+      $(this.hostElement)
+        .find('.popt')
+        .css({
+          'background-color': newColor
+        });
+    });
   }
 
 }
