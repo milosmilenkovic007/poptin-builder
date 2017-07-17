@@ -741,7 +741,7 @@ var TemplatesService = (function () {
         this.http = http;
     }
     TemplatesService.prototype.getTemplateHtml = function (templateName) {
-        return this.http.get("/assets/templates/" + templateName + ".html")
+        return this.http.get("assets/templates/" + templateName + ".html")
             .map(function (r) { return r.text(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); });
     };
